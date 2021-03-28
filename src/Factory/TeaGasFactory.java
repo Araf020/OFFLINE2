@@ -1,32 +1,41 @@
 package Factory;
 
+import Device.MicroController;
+import builder.TeaGasBuilder;
+
 public class TeaGasFactory {
 
-    public static void getTeagas(String packageName){
+    private static TeaGasBuilder  builder;
+
+    public static MicroController getTeagas(String packageName){
+
+        builder = new TeaGasBuilder();
+
         if (packageName.equals("Silver")){
-            /*
-            your code
+            /**
+             * Silver means Arduino
              */
+
+            return builder.getSilver("","");
+
         }
         else if (packageName.equals("Diamond")){
-            /**
-             * your code
-             */
+
+            return builder.getSilver("","");
+
         }
         else if (packageName.equals("Gold")){
-            /**
-             * your code
-             */
+
+            return builder.getSilver("","");
+
         }
         else if (packageName.equals("Platinum")){
-            /**
-             * your code
-             */
+            return builder.getSilver("","");
+
         }
         else {
-            /**
-             * your code
-             */
+            return builder.getSilver("","");
+
         }
     }
 }

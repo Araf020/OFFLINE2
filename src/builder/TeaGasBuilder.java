@@ -1,31 +1,32 @@
 package builder;
-import MicroCotroller.ATMega32;
-import MicroCotroller.ArduinoMega;
-import MicroCotroller.RaspberryPi;
-import com.WeightMeasurement.Load_Sensor;
-import com.WeightMeasurement.weight_Module;
-import com.display.LCD;
-import com.display.LED;
-import com.display.TouchScreen;
-import com.identification.NFC;
-import com.identification.RFID;
-import com.internet.GSM;
-import com.internet.Wifi;
+import Device.Device;
+import component.MicroControllerandProcessors.ATMega32;
+import Device.ArduinoMega;
+import Device.MicroController;
+import component.MicroControllerandProcessors.RaspberryPi;
+import component.WeightMeasurement.Load_Sensor;
+import component.WeightMeasurement.weight_Module;
+import component.display.LCD;
+import component.display.LED;
+import component.display.TouchScreen;
+import component.identification.NFC;
+import component.identification.RFID;
+import component.internet.GSM;
+import component.internet.Wifi;
 
 
 
 public class TeaGasBuilder
 {
 
-
-
     /**
      * AtMeGa32 Builder
 
      */
-    public static  ATMega32 getATMega32(String weightMeasurement,String internetConnection){
 
-        ATMega32 atMega32 = new ATMega32();
+    public Device getSilver(String weightMeasurement, String internetConnection){
+
+        Device atMega32 = new Device();
 
         if (weightMeasurement.toUpperCase().equals("LOADSENSOR")){
 
@@ -45,7 +46,7 @@ public class TeaGasBuilder
 
         atMega32.setDisplay(new LCD()); /** display settings*/
         atMega32.setIdcard(new RFID()); /** identification setting */
-        atMega32.setFunctionality();
+        atMega32.setFunctions();
         /**
          * controller settings is incomplete
          */
@@ -60,17 +61,11 @@ public class TeaGasBuilder
 
      */
 
-
-
-    /**
-     * Arduino Builder
-
-     */
-
-    public static ArduinoMega getArduinoMega(String weightMeasurement,
+    public  Device getArduinoMega(String weightMeasurement,
                                              String internetConnection ){
-        ArduinoMega arduinoMega = new ArduinoMega();
-        arduinoMega.setFunctionality();
+        Device arduinoMega = new Device();
+
+        arduinoMega.setFunctions();
         arduinoMega.setDisplay(new LED());
         arduinoMega.setIdcard(new RFID());
 
@@ -94,34 +89,37 @@ public class TeaGasBuilder
      * RaspberryPiBuilder
 
      */
-    public  static RaspberryPi getRaspberryPi(String weightMeasurement){
+    public Device getRaspberryPi(String weightMeasurement){
 
-        RaspberryPi raspberryPi = new RaspberryPi();
-        raspberryPi.setDisplay(new TouchScreen());
-        raspberryPi.setIdcard(new NFC());
+        Device device = new Device();
+        device.setFunctions();
+        device.setDisplay(new TouchScreen());
+
+        device.setIdcard(new NFC());
 
         if (weightMeasurement.toUpperCase().equals("WEIGHTMODULE"))
-            raspberryPi.setWeightMeasurement(new weight_Module());
+            device.setWeightMeasurement(new weight_Module());
 
         else
-            raspberryPi.setWeightMeasurement(new Load_Sensor());
+            device.setWeightMeasurement(new Load_Sensor());
 
 
 
-        return raspberryPi;
+        return device;
     }
-/** with internet choice */
 
-    public  static RaspberryPi getRaspberryPi(String wmt, String internet) {
+    /** with internet choice */
 
-        RaspberryPi raspBerryPi = getRaspberryPi(wmt);
+    public  Device getRaspberryPi(String wmt, String internet) {
+
+        Device device = getRaspberryPi(wmt);
 
         if (internet.toUpperCase().equals("GSM"))
-         raspBerryPi.setInternetConnection(new GSM());
+         device.setInternetConnection(new GSM());
         else
-            raspBerryPi.setInternetConnection(new Wifi());
+            device.setInternetConnection(new Wifi());
 
-        return raspBerryPi;
+        return device;
     }
 
 
