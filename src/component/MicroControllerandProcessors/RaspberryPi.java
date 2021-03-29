@@ -1,7 +1,7 @@
 package component.MicroControllerandProcessors;
 
 
-public class RaspberryPi{
+public class RaspberryPi implements Micro{
     /**
      * members
      */
@@ -18,4 +18,8 @@ public class RaspberryPi{
     /**
      * your code
      */
+    @Override
+    public void setFunctionality() {
+
+    }
 }

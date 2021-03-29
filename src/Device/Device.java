@@ -1,119 +1,77 @@
 package Device;
 
-import WebServers.Admin;
+import component.Controller.ControlUnit;
 import component.Storage.SDcard;
 import component.Storage.Storage;
 import component.WeightMeasurement.WeightMeasure;
 import component.display.Display;
-import component.display.LED;
 import component.identification.ID;
-import component.identification.RFID;
 import component.internet.InternetConnection;
 
 public class Device implements TeaGasDevice {
 
     private WeightMeasure weightMeasurement;
     private InternetConnection internetConnection;
-    private RFID idcard;
-    private LED display;
-    private Admin admin;
+    private ID idcard;
+    private Display display;
     private Storage storage;
     private SDcard sDcard;
+    private ControlUnit controller;
     private Double sdCardSize;
 
 
-    public Device() {
-        /**
-         * your code
-         */
-
-        System.out.println("Device created");
-
-    }
-
-
-    public void setsDcard() {
-
-        this.sDcard.setFreeSpace(this.sdCardSize);
-        this.sDcard.setFunctionalities();
-
-    }
-
-    public void setSdCardSize(Double size){
-
-        this.sdCardSize = size;
-
-    }
-
 
 
     /**
-     * implement below methods as needed
+     *
+     * @param weightMeasurement
+     * @param internetConnection
+     * @param idcard
+     * @param display
+     * @param sDcard
+     * @param controller
+     *
+     * your Constructor
      */
 
-    @Override
-    public void setWebserver() {
-     //   admin = new Admin();
+    public Device(WeightMeasure weightMeasurement, InternetConnection internetConnection, ID idcard, Display display, SDcard sDcard, ControlUnit controller) {
+        this.weightMeasurement = weightMeasurement;
+        this.internetConnection = internetConnection;
+        this.idcard = idcard;
+        this.display = display;
+        this.sDcard = sDcard;
+        this.controller = controller;
+
+        System.out.println("Device Created");
 
     }
-
-    @Override
-    public void setFrameWork(String frameWorkname) {
-        //admin.setFrameWork(frameWorkname);
-
-    }
-    @Override
-    public  void  setFunctions(){
-        /**
-         * your code
-         */
-    }
-    public void setWeightMeasurement(WeightMeasure weightMeasurement) {
-        /**
-         * your code
-         */
-    }
-
-    @Override
-    public WeightMeasure getWeightMeasurement() {
-        return null;
-    }
-
-    @Override
-    public InternetConnection getInternetConnection() {
-        return null;
-    }
-
-    @Override
-    public void setInternetConnection(InternetConnection internetConnection) {
-
-    }
-
-    @Override
-    public ID getIdcard() {
-        return null;
-    }
-
-    @Override
-    public void setIdcard(ID idcard) {
-
-    }
-
-    @Override
-    public Display getDisplay() {
-        return null;
-    }
-
-    @Override
-    public void setDisplay(Display display) {
-
-    }
-
-
 
     /**
-     * storage implementation ends here
+     *
+     * @param weightMeasurement
+     * @param internetConnection
+     * @param idcard
+     * @param display
+     * @param touch
+     *
+     * your overLoaded Constructor
      */
 
+    public Device(WeightMeasure weightMeasurement, InternetConnection internetConnection, ID idcard, Display display, ControlUnit touch) {
+        this.weightMeasurement = weightMeasurement;
+        this.internetConnection = internetConnection;
+        this.idcard = idcard;
+        this.display = display;
+        this.storage = new Storage();
+        this.controller = touch;
+
+        System.out.println("Device Created");
+
+    }
+
+    @Override
+    public void startActivity() {
+
+    }
 
 }

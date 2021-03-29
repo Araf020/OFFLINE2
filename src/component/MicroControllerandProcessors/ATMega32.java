@@ -1,6 +1,6 @@
 package component.MicroControllerandProcessors;
 
-public class ATMega32{
+public class ATMega32 implements Micro{
 
     /**
      * members
@@ -17,4 +17,9 @@ public class ATMega32{
     /**
      * your code
      */
+
+    @Override
+    public void setFunctionality() {
+
+    }
 }

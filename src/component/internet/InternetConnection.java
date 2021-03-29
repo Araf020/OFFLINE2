@@ -1,6 +1,7 @@
 package component.internet;
 
 public class InternetConnection {
+
      Double bandWidth = 0.0;
      boolean connectionStatus= true;
 
@@ -8,6 +9,7 @@ public class InternetConnection {
     boolean establishConnection(){
         return true;
     }
+
     Double getBandWidth() {
         return null;
     }

@@ -1,7 +1,7 @@
 package component.WeightMeasurement;
 
-public class weight_Module extends WeightMeasure{
-    public weight_Module() {
+public class Weight_Module extends WeightMeasure{
+    public Weight_Module() {
         /**
          * your constructor
          */

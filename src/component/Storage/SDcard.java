@@ -6,39 +6,53 @@ public class SDcard {
    private Double freeSpace;
    private Double usedSpace;
 
+   public SDcard() {
 
-
-   public Double getFreeSpace() {
-      return freeSpace;
+      System.out.println("SDcard set");
    }
 
-   public void setFreeSpace(Double freeSpace) {
-      this.freeSpace = freeSpace;
+   public void setFunctionalities(){
+
+      sdCardStorage sdCardStorage = new sdCardStorage() {
+         @Override
+         public void setSize() {
+
+         }
+
+         @Override
+         public void increaseSize() {
+
+         }
+
+         @Override
+         public void FileDeletion() {
+
+         }
+
+         @Override
+         public void FileRetrieve() {
+
+         }
+
+         @Override
+         public void setFolders() {
+
+         }
+
+         @Override
+         public void copyData() {
+
+         }
+      };
+
    }
 
-   public Double getUsedSpace() {
-      return usedSpace;
-   }
 
-   public void setUsedSpace(Double usedSpace) {
-      this.usedSpace = usedSpace;
-   }
-
-   void   setSize(Double size){
-
-      this.size = size;
+   public void setType(){
 
    }
    Double getSize(){
       return size;
-   }
-
-
-   public void setFunctionalities(){
-
-   }
-   public void setType(){
-
    }
    public void customize(){
 

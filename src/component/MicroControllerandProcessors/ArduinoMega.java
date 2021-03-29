@@ -1,6 +1,6 @@
 package component.MicroControllerandProcessors;
 
-public class ArduinoMega{
+public class ArduinoMega implements Micro{
 
     /**
      * members
@@ -17,4 +17,8 @@ public class ArduinoMega{
     /**
      * your code
      */
+    @Override
+    public void setFunctionality() {
+
+    }
 }
